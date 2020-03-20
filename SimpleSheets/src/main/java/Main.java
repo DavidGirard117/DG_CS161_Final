@@ -197,6 +197,27 @@ public class Main {
         }
 
 }
+/* Order Number: 1
+Order Date: 2020-03-19
+Customer Number: 1
+Sales Associate: Jane  Smith
+Customer Name: David  Schmidt
+Status: Sales
+Mailing Address: 123 Main st
+The Dalles OR, 97058
+Billing Address: PO box 555
+The Dalles OR, 97058
+Shipping Address: 245 Country Lane
+apt 15
+Portland OR, 97035
+
+Amount: 0
+Product: Hammermill Paper
+Price: 31.99
+Total: 63.98
+Order Total: 63.98
+Commission Amunt: 0.0
+63.98 */
         
         
 
