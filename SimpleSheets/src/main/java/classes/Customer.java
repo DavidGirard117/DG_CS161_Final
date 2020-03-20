@@ -12,6 +12,7 @@ public class Customer extends Person {
     String lastName, 
     String phoneNumber, 
     String eMail,
+    Address mailing,
     Address billing,
     Address shipping
     //ArrayList<Address>addresses,
@@ -21,7 +22,8 @@ public class Customer extends Person {
                 setFirstName(firstName);
                 setLastName(lastName);
                 setPhoneNumber(phoneNumber);
-                setEmail(eMail); 
+                setEmail(eMail);
+                setMailingAddress(mailing); 
                 setBillingAddress(billing);
                 setShippingAddress(shipping);
 

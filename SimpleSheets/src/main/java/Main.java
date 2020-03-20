@@ -59,7 +59,8 @@ public class Main {
                                 "5419804355",
                                 "email@email.com",
                                 addresses.get(0),
-                                addresses.get(1)
+                                addresses.get(1),
+                                addresses.get(2)
                         )
                 );
 
@@ -70,6 +71,7 @@ public class Main {
                                 "Does",
                                 "5429654545",   
                                 "email@email.com",
+                                addresses.get(0),
                                 addresses.get(0),
                                 addresses.get(0)
                         )
@@ -82,7 +84,8 @@ public class Main {
                                 "5415065009",
                                 "email@email.com",
                                 addresses.get(2),
-                                addresses.get(2)
+                                addresses.get(2),
+                                addresses.get(1)
                         )
                 );
                 ArrayList<Employee> employees = new ArrayList<Employee>();
@@ -97,7 +100,7 @@ public class Main {
                                 "03/18/2020",
                                 45000.00,
                                 "Sales",
-                                0.15
+                                .15
                         )
                 );
                 employees.add(
@@ -111,7 +114,7 @@ public class Main {
                                 "03/18/2020",
                                 45000.00,
                                 "Sales",
-                                0.15
+                                .15
                         )
                 );
                 ArrayList<Product> products = new ArrayList<Product>();
@@ -120,7 +123,6 @@ public class Main {
                                 "Hammermill Paper",
                                 31.99,
                                 10,
-                                9,
                                 1        
                         )
                 ); 
@@ -129,7 +131,6 @@ public class Main {
                                 "Tru Red Paper",
                                 55.99,
                                 15,
-                                3,
                                 2
                         )
                 );
@@ -138,14 +139,13 @@ public class Main {
                                 "Domtar Paper",
                                 59.29,
                                 5,
-                                2,
                                 3
                         )
                 );
                 ArrayList<LineItem> lineItems = new ArrayList<LineItem>();
                 lineItems.add(
                         new LineItem(
-                                10,
+                                2,
                                 products.get(0)
                         )
                 );
@@ -187,9 +187,11 @@ public class Main {
                                 employees.get(0),
                                 "Sales",
                                 lineItems
+                                
                 );
                                 orders.get(0).printOrder();
-                                orders.get(0).printLineItems(); 
+                                orders.get(0).printLineItems();
+                                System.out.println(orders.get(0).getTotal()); 
 
                         
         }

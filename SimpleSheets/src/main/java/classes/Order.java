@@ -14,6 +14,7 @@ public class Order {
     String employeeName;
     Employee employee;
     String orderStatus;
+    Address mailingAddress;
     Address billingAddress;
     Address shippingAddress;
     double total;
@@ -35,13 +36,14 @@ public class Order {
         setCustomerID(customer.getIDNumber());
         setCustomerName(customer.getFullName());
         setEmployeeName(employee.getFullName());
+        setEmployee(employee);
         setEmployeeCommission(employee.getCommissionRate());
         setOrderStatus(orderStatus);//True or False
+        setMailingAddress(customer.getMailingAddress());
         setBillingAddress(customer.getBillingAddress());
         setShippingAddress(customer.getShippingAddress());
         setLineItems(lineItems);  
         calcTotal();
-        calcCommission(employee.getCommissionRate());
     }
     
     //operations
@@ -76,6 +78,10 @@ public class Order {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+    
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public String getEmployeeName() {
         return employeeName;
@@ -83,6 +89,10 @@ public class Order {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 
     public void setEmployeeCommission(double commissionRate) {
@@ -95,6 +105,14 @@ public class Order {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public Address getMailingAddress() {
+        return mailingAddress;
+    }
+
+    public void setMailingAddress(Address mailingAddress){
+        this.mailingAddress = mailingAddress;
     }
 
     public Address getBillingAddress() {
@@ -155,6 +173,7 @@ public class Order {
                 sb.append("\r\n" + "Sales Associate: "+getEmployeeName());
                 sb.append("\r\n" + "Customer Name: "+getCustomerName());
                 sb.append("\r\n" + "Status: "+getOrderStatus());
+                sb.append("\r\n" + "Mailing Address: "+getMailingAddress().formatAddress());
                 sb.append("\r\n" + "Billing Address: "+getBillingAddress().formatAddress());
                 sb.append("\r\n" + "Shipping Address: "+getShippingAddress().formatAddress());
                 System.out.println(sb.toString());
@@ -169,6 +188,7 @@ public class Order {
                 sb.append("\r\n" + "Price: "+ lineItems.get(i).getProduct().getPrice());
                 sb.append("\r\n" + "Total: "+ lineItems.get(i).getTotal());
                 sb.append("\r\n" + "Order Total: "+ getTotal());
+                sb.append("\r\n" + "Commission Amunt: "+ getCommission());
                 System.out.println(sb.toString());
             }
         }

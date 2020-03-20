@@ -6,6 +6,7 @@ public class LineItem {
     public static final String getTotal = null;
 	//members
     int quantity;
+    int quantityAvail;
     int quantityOrder;
     Product product;
     double total;
@@ -14,8 +15,10 @@ public class LineItem {
     public LineItem(
         int quantity, 
         Product product
+
     ) {
         setQuantity(quantity);
+        setQuantityAvail(quantityAvail);
         setQuantityOrder(quantityOrder);
         setProduct(product);
         setTotal(total);
@@ -23,6 +26,13 @@ public class LineItem {
         updateStock();
     }
 
+    public int getQuantityAvail() {
+        return quantityAvail;
+    }
+
+    public void setQuantityAvail(int quantityAvail) {
+        this.quantityAvail = quantityAvail;
+    }
     public int getQuantityOrder(){
         return quantityOrder;
     }
@@ -55,11 +65,11 @@ public class LineItem {
     
     //total product amount (quantity of product * price of product)
     public void calcTotal(){
-        setTotal(getProduct().getPrice()*getQuantity());//ArrayList(setTotal) * int need fixing
+        setTotal(product.getPrice()*getQuantity());//ArrayList(setTotal) * int need fixing
     }
     //product stock available after ordering
     public void updateStock(){
-        setQuantity(getQuantity() - getQuantityOrder());
+        setQuantity(getQuantityAvail() - getQuantityOrder());
     }
     
      
