@@ -23,9 +23,12 @@ public class Employee extends Person {
     String department, 
     double commissionRate
     )
-   // throws ParseException
+    throws ParseException
      {
-        //setHireDate(hireDate);
+        setHireDate(hireDate);
+        setIDNumber(iDNumber);
+        setFirstName(firstName);
+        setLastName(lastName);
         setSalary(salary);
         setDepartment(department);
         setCommissionRate(commissionRate);
@@ -36,7 +39,7 @@ public class Employee extends Person {
     public Date getHireDate() {
         return hireDate;
     }
-
+    
     public double getSalary() {
         return salary;
     }
@@ -74,6 +77,8 @@ public class Employee extends Person {
         + " " + getCommissionRate()
         );
     }
+
     
+
     
 }

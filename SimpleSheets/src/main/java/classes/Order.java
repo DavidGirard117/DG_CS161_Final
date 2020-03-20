@@ -17,6 +17,7 @@ public class Order {
     Address billingAddress;
     Address shippingAddress;
     double total;
+    double commissionRate;
     double commission;
     ArrayList<LineItem> lineItems;
 
@@ -26,8 +27,7 @@ public class Order {
     Customer customer, 
     Employee employee, 
     String orderStatus,
-    ArrayList<LineItem> lineItems,
-    double commission
+    ArrayList<LineItem> lineItems
     ){
         LocalDate hireDate = LocalDate.now();
         setDate(hireDate);
@@ -35,10 +35,10 @@ public class Order {
         setCustomerID(customer.getIDNumber());
         setCustomerName(customer.getFullName());
         setEmployeeName(employee.getFullName());
+        setEmployeeCommission(employee.getCommissionRate());
         setOrderStatus(orderStatus);//True or False
         setBillingAddress(customer.getBillingAddress());
         setShippingAddress(customer.getShippingAddress());
-        //setCommission(employee.getCommissionRate());
         setLineItems(lineItems);  
         calcTotal();
         calcCommission(employee.getCommissionRate());
@@ -83,6 +83,10 @@ public class Order {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    public void setEmployeeCommission(double commissionRate) {
+        this.commissionRate = commissionRate;
     }
 
     public String getOrderStatus() {
@@ -140,6 +144,7 @@ public class Order {
     //Array list of commission amounts
     public void calcCommission(double commissionRate){ 
         setCommission(employee.getCommissionRate()*getTotal());
+        System.out.println();
     }
         //print order information
         public void printOrder(){

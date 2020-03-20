@@ -102,7 +102,7 @@ public class Main {
                 );
                 employees.add(
                          new Employee(
-                                2,
+                                1,
                                 "John",
                                 "Doe",
                                 "5419865656",
@@ -160,8 +160,7 @@ public class Main {
                                 customers.get(0),
                                 employees.get(0),
                                 "Sales",
-                                lineItems,
-                                orders.get(0).getCommission()
+                                lineItems
 
                         )
                 );
@@ -170,26 +169,24 @@ public class Main {
                                 customers.get(1),
                                 employees.get(0),
                                 "Sales",
-                                lineItems,
-                                orders.get(1).getCommission()
+                                lineItems
+                        );
                         
-                );
+        
                         new Order(
                                 3,
                                 customers.get(0), 
                                 employees.get(0), 
                                 "Sales", 
-                                lineItems,
-                                orders.get(2).getCommission()
+                                lineItems
 
                 );
                         new Order(
                                 4,
-                                customers.get(1),
+                                customers.get(0),
                                 employees.get(0),
                                 "Sales",
-                                lineItems,
-                                orders.get(3).getCommission()
+                                lineItems
                 );
                                 orders.get(0).printOrder();
                                 orders.get(0).printLineItems(); 
