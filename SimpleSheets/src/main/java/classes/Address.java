@@ -71,7 +71,7 @@ public class Address {
     public void setZip(int zip) {
         this.zip = zip;
     }
-    /* public String getAddressInfo(){
+     public String getAddressInfo(){
         return (getAddressID()
         + " " + getLine1()
         + " " + getLine2()
@@ -79,13 +79,8 @@ public class Address {
         + " " + getState()
         + " " + getZip()
         ); 
-    }*/
-    public String formatAddress(int id, 
-    String line1, 
-    String line2, 
-    String city, 
-    String state, 
-    int zip
+    }
+    public String formatAddress(
     ){  
         StringBuilder sb = new StringBuilder();
         sb.append(line1);

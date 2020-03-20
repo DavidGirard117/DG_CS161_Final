@@ -1,7 +1,6 @@
 package main.java.classes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Employee extends Person {
@@ -9,28 +8,27 @@ public class Employee extends Person {
     private Date hireDate;
     private double salary;
     private String department;
-    private double comissionRate;
+    private double commissionRate;
     
 
     //Constructors
     public Employee(int iDNumber, 
     String firstName, 
-    String lastname, 
+    String lastName, 
     String phoneNumber, 
     String eMail,
     Address mailing, 
     String hireDate, 
     double salary, 
     String department, 
-    double comissionRate,
-    ArrayList<Double>totalComissions
+    double commissionRate
     )
-    throws ParseException
+   // throws ParseException
      {
-        setHireDate(hireDate);
+        //setHireDate(hireDate);
         setSalary(salary);
         setDepartment(department);
-        setComissionRate(comissionRate);
+        setCommissionRate(commissionRate);
         setMailingAddress(mailing);
     }
 
@@ -55,12 +53,12 @@ public class Employee extends Person {
         this.department = department;
     }
 
-    public double getComissionRate() {
-        return comissionRate;
+    public double getCommissionRate() {
+        return commissionRate;
     }
 
-    public void setComissionRate(double comissionRate) {
-        this.comissionRate = comissionRate;
+    public void setCommissionRate(double commissionRate) {
+        this.commissionRate = commissionRate;
     }
     public void setHireDate(String hireDate)throws ParseException{
         SimpleDateFormat formatDate = new SimpleDateFormat("MM/dd/yyyy");
@@ -73,7 +71,7 @@ public class Employee extends Person {
         return (getPersonInfo()
         + " " + getHireDate()
         + " " + getSalary()
-        + " " + getComissionRate()
+        + " " + getCommissionRate()
         );
     }
     

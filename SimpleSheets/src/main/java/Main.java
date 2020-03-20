@@ -1,3 +1,10 @@
+//SimpleSheets
+//David Girard
+//CS161 Winter  2020
+//3/19/20
+//Final project; SimpleSheets print order information
+
+
 package main.java;
 
 //imports
@@ -17,7 +24,7 @@ public class Main {
                                 1,
                                 "123 Main st",
                                 "",
-                                "The dalles",
+                                "The Dalles",
                                 "OR",
                                 97058
                                 )
@@ -27,12 +34,20 @@ public class Main {
                                 2,
                                 "PO box 555",
                                 "",
-                                "The dalles",
+                                "The Dalles",
                                 "OR",
                                 97058
                         )
                 );
-                addresses.add(new Address(3, "245 Country Lane", "apt 15", "Portland", "OR", 97035));
+                addresses.add(
+                        new Address(
+                                3,
+                                "245 Country Lane",
+                                "apt 15", "Portland",
+                                "OR",
+                                97035
+                        )
+                );
 
                 //List of Customers
                 ArrayList<Customer> customers = new ArrayList<Customer>();
@@ -82,13 +97,12 @@ public class Main {
                                 "03/18/2020",
                                 45000.00,
                                 "Sales",
-                                0.15,
-                                null
+                                0.15
                         )
                 );
                 employees.add(
                          new Employee(
-                                1,
+                                2,
                                 "John",
                                 "Doe",
                                 "5419865656",
@@ -97,8 +111,7 @@ public class Main {
                                 "03/18/2020",
                                 45000.00,
                                 "Sales",
-                                0.15,
-                                null
+                                0.15
                         )
                 );
                 ArrayList<Product> products = new ArrayList<Product>();
@@ -107,6 +120,7 @@ public class Main {
                                 "Hammermill Paper",
                                 31.99,
                                 10,
+                                9,
                                 1        
                         )
                 ); 
@@ -115,6 +129,7 @@ public class Main {
                                 "Tru Red Paper",
                                 55.99,
                                 15,
+                                3,
                                 2
                         )
                 );
@@ -123,19 +138,62 @@ public class Main {
                                 "Domtar Paper",
                                 59.29,
                                 5,
+                                2,
                                 3
                         )
                 );
-                        ArrayList<LineItem> lineItems = new ArrayList<LineItem>();
-                        lineItems.add(
+                ArrayList<LineItem> lineItems = new ArrayList<LineItem>();
+                lineItems.add(
+                        new LineItem(
                                 10,
-                                products.get(0),
-                                lineItems(LineItem.calcTotal());
+                                products.get(0)
+                        )
+                );
+                        new LineItem(
+                                3,
+                                products.get(1)
+                );
+                ArrayList<Order> orders = new ArrayList<Order>();
+                orders.add(
+                        new Order(
+                                1,
+                                customers.get(0),
+                                employees.get(0),
+                                "Sales",
+                                lineItems,
+                                orders.get(0).getCommission()
+
+                        )
+                );
+                        new Order(
+                                2,
+                                customers.get(1),
+                                employees.get(0),
+                                "Sales",
+                                lineItems,
+                                orders.get(1).getCommission()
                         
-                        
-                        
-                        Order orders = new Order (1, customers.get(0), 
-                        employees.get(0), true, lineItems.get(0), 10.5);
+                );
+                        new Order(
+                                3,
+                                customers.get(0), 
+                                employees.get(0), 
+                                "Sales", 
+                                lineItems,
+                                orders.get(2).getCommission()
+
+                );
+                        new Order(
+                                4,
+                                customers.get(1),
+                                employees.get(0),
+                                "Sales",
+                                lineItems,
+                                orders.get(3).getCommission()
+                );
+                                orders.get(0).printOrder();
+                                orders.get(0).printLineItems(); 
+
                         
         }
 

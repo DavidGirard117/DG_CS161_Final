@@ -1,3 +1,6 @@
+
+
+
 package main.java.classes;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -6,38 +9,39 @@ public class Order {
     //members
     LocalDate date;
     int number;
-    Customer customerID;
-    Customer customerName;
-    Employee employeeName;
-    boolean orderStatus;
+    int customerID;
+    String customerName;
+    String employeeName;
+    Employee employee;
+    String orderStatus;
     Address billingAddress;
     Address shippingAddress;
     double total;
-    ArrayList<Employee> comission;
+    double commission;
     ArrayList<LineItem> lineItems;
 
     //constructor
-    public Order(int number, 
+    public Order(
+    int number, 
     Customer customer, 
     Employee employee, 
-    boolean orderStatus,
+    String orderStatus,
     ArrayList<LineItem> lineItems,
-    ArrayList<Employee> comission
-    
+    double commission
     ){
         LocalDate hireDate = LocalDate.now();
         setDate(hireDate);
         setNumber(number);
-        //setEmployeeName(employee.getFullName());
-        //setCustomerID(customer.getIDNumber());
-        //setCustomerName(getFullName());
+        setCustomerID(customer.getIDNumber());
+        setCustomerName(customer.getFullName());
+        setEmployeeName(employee.getFullName());
         setOrderStatus(orderStatus);//True or False
         setBillingAddress(customer.getBillingAddress());
         setShippingAddress(customer.getShippingAddress());
-        setTotal(total);  
-        calcTotal(lineItems);
-        setComission(comission);
-        setLineItems(lineItems);
+        //setCommission(employee.getCommissionRate());
+        setLineItems(lineItems);  
+        calcTotal();
+        calcCommission(employee.getCommissionRate());
     }
     
     //operations
@@ -57,35 +61,35 @@ public class Order {
         this.number = number;
     }
 
-    public Customer getCustomerID() {
+    public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Customer customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
-    public Customer getCustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(Customer customerName) {
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
 
-    public Employee getEmployeeName() {
+    public String getEmployeeName() {
         return employeeName;
     }
 
-    public void setEmployeeName(Employee employeeName) {
+    public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
-    public boolean getOrderStatus() {
+    public String getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(boolean orderStatus) {
+    public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
 
@@ -112,11 +116,11 @@ public class Order {
     public void setTotal(double total) {
         this.total = total;
     }
-    public ArrayList<Employee> getComission(){
-        return comission;
+    public double getCommission(){
+        return commission;
     }
-    public void setComission(ArrayList<Employee> comission){
-        this.comission = comission;
+    public void setCommission(double commission){
+        this.commission = commission;
     }
     public ArrayList<LineItem> getLineItems() {
         return lineItems;
@@ -127,64 +131,42 @@ public class Order {
     }
     
     //sum of LineItem totals
-    public void calcTotal(ArrayList<LineItem>lineItems){
-        for(LineItem item : lineItems){
+    public void calcTotal(){
+        for(LineItem item : getLineItems()){
             setTotal(item.getTotal()+getTotal());
         }
     
     }
-    //Array list of comission amounts
-    public void calcComission(ArrayList<Employee>totalComission){
-        for(Employee comission : totalComission) {
-            setComission(comission.getComissionRate()*getTotal());
-        }
+    //Array list of commission amounts
+    public void calcCommission(double commissionRate){ 
+        setCommission(employee.getCommissionRate()*getTotal());
     }
-    //print order information
-    public void printOrder(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Order Number: "+getNumber());
-        sb.append("\r\n" + "Order Date: "+getDate());
-        sb.append("\r\n" + "Customer Number: "+getCustomerID());
-        sb.append("\r\n" + "Sales Associate: "+getEmployeeName());
-        sb.append("\r\n" + "Customer Name: "+getCustomerName());
-        sb.append("\r\n" + "Status: "+getOrderStatus());
-        sb.append("\r\n" + "Billing Address: "+getBillingAddress());
-        sb.append("\r\n" + "Shipping Address: "+getShippingAddress());
+        //print order information
+        public void printOrder(){
+            StringBuilder sb = new StringBuilder();
+                sb.append("Order Number: "+getNumber());
+                sb.append("\r\n" + "Order Date: "+getDate());
+                sb.append("\r\n" + "Customer Number: "+getCustomerID());
+                sb.append("\r\n" + "Sales Associate: "+getEmployeeName());
+                sb.append("\r\n" + "Customer Name: "+getCustomerName());
+                sb.append("\r\n" + "Status: "+getOrderStatus());
+                sb.append("\r\n" + "Billing Address: "+getBillingAddress().formatAddress());
+                sb.append("\r\n" + "Shipping Address: "+getShippingAddress().formatAddress());
+                System.out.println(sb.toString());
     }
+       
         //Line Item order information
         public void printLineItems(){
             StringBuilder sb = new StringBuilder();
             for(int i = 0; i < lineItems.size(); i++){
-                sb.append("\r\n" + "Amount: "+ lineItems.get(i).getQuantityOrder());
+                sb.append("\r\n" + "Amount: "+ lineItems.get(i).getQuantity());
                 sb.append("\r\n" + "Product: "+ lineItems.get(i).getProduct().getName());
                 sb.append("\r\n" + "Price: "+ lineItems.get(i).getProduct().getPrice());
                 sb.append("\r\n" + "Total: "+ lineItems.get(i).getTotal());
                 sb.append("\r\n" + "Order Total: "+ getTotal());
-                sb.append("\r\n" + "Sales Comission Amount: "+ getComission());
-
-
-
-                
-
-
-
+                System.out.println(sb.toString());
             }
         }
-
-        
-
-
-
-
-
-
-
-        
-
-
-    
-    
-
 }
 
     

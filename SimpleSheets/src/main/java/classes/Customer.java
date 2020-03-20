@@ -60,6 +60,7 @@ public class Customer extends Person {
     private Object getZip(){
         return null;
     }
+    
 
     /* public void setCustomerAddresses(Address billing, Address shipping){
         setBillingAddress(billing);

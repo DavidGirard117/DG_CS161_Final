@@ -1,18 +1,23 @@
 package main.java.classes;
 
 public class Product {
-    //members
-    String name;
-    double price;
-    int stock;
-    //int quantity;
-    int productID;
+        //members
+        String name;
+        double price;
+        int quantity;
+        int quantityOrder;
+        int productID;
 
     //constructors
-    public Product(String name, double price, int stock, int productID) {
+    public Product(
+        String name,
+        double price,
+        int quantity,
+        int quantityOrder,
+        int productID
+        ) {
         setName(name);
         setPrice(price);
-        setStock(stock);
         setProductID(productID);
         //updateStock(quantity);
     }
@@ -34,14 +39,15 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-
-    public int getStock() {
-        return stock;
+    
+    public int getQuantityOrder() {
+        return quantityOrder;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setQuantityOrder(int quantityOrder) {
+        this.quantityOrder = quantityOrder;
     }
+    
 
     public int getProductID() {
         return productID;
@@ -54,7 +60,15 @@ public class Product {
     //public void updateStock(int quantity){
         //setStock(getStock() + quantity); 
     //}
-    
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 
     
 }
